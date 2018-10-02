@@ -1211,7 +1211,7 @@ function TDM(d) {
 		var msg = ''
 		msg = damage.nFormatter(3)
 		//log(skill + ':' + skill.slice(1,skill.length))
-		d.send('S_DUNGEON_EVENT_MESSAGE', 1, {
+		d.send('S_DUNGEON_EVENT_MESSAGE', 2, {
 			message: `<img src="img://skill__0__${me.templateId}__${skill.slice(1,skill.length-2)}00" width="20" height="20" />&nbsp;${msg}`,
 			unk1: 2, //70 : 2,
 			unk2: 0,
@@ -1474,13 +1474,13 @@ function TDM(d) {
 	})*/
 
 	d.hook('S_LOGIN',10, sLogin)
-	d.hook('S_SPAWN_ME',2, sSpawnMe)
+	d.hook('S_SPAWN_ME',3, sSpawnMe)
 	d.hook('S_LOAD_TOPO',3, sLoadTopo)
 	d.hook('S_ANSWER_INTERACTIVE', 2, sAnswerInteractive)
 	d.hook('S_BOSS_GAGE_INFO',3, sBossGageInfo)
 	d.hook('S_NPC_TARGET_USER',1, sNpcTargetuser)
 	//d.hook('S_BOSS_BATTLE_INFO',1, sBossBattleInfo)
-	d.hook('S_SPAWN_NPC',8,{order: 200}, sSpawnNpc)
+	d.hook('S_SPAWN_NPC',9,{order: 200}, sSpawnNpc)
 	d.hook('S_DESPAWN_NPC',3, sDespawnNpc)
 	d.hook('S_DEAD_LOCATION',2, sDeadLocation)
 	d.hook('S_LEAVE_PARTY_MEMBER',2,sLeavePartyMember)
@@ -1488,9 +1488,10 @@ function TDM(d) {
 	d.hook('S_PARTY_MEMBER_LIST',6,sPartyMemberList)
 	d.hook('S_CHANGE_EVENT_MATCHING_STATE',1,sChangeEvetMatchingState)
 	d.hook('S_DESPAWN_USER', 3, sDespawnUser)
-	d.hook('S_SPAWN_USER',12, sSpawnUser)
+	d.hook('S_SPAWN_USER',13, sSpawnUser)
 	d.hook('S_NPC_STATUS',1, sNpcStatus)
-	d.hook('S_EACH_SKILL_RESULT',d.base.majorPatchVersion < 74 ? 10 : 12, {order: 200}, sEachSkillResult)
+	//d.hook('S_EACH_SKILL_RESULT',d.base.majorPatchVersion < 74 ? 10 : 12, {order: 200}, sEachSkillResult)
+	d.hook('S_EACH_SKILL_RESULT',12, {order: 200}, sEachSkillResult)
 	d.hook('S_NPC_OCCUPIER_INFO',1, sNpcOccupierInfo)
 }
 
