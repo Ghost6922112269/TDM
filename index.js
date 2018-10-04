@@ -1385,10 +1385,7 @@ function TDM(d) {
 		if(currentbossId){
 			for(var i in party)
 				if(party[i].gameId === e.gameId.toString())
-					if(typeof party[i].Targets[currentbossId] !== 'undefined') 
-						party[i].Targets[currentbossId].dead++
-					else log(e)
-			
+					party[i].Targets[currentbossId].dead++
 		}
 	}
 
@@ -1488,8 +1485,8 @@ function TDM(d) {
 	d.hook('S_DEAD_LOCATION',2, sDeadLocation)
 	d.hook('S_LEAVE_PARTY_MEMBER',2,sLeavePartyMember)
 	d.hook('S_LEAVE_PARTY',1, sLeaveparty)
-	d.hook('S_PARTY_MEMBER_LIST',6,sPartyMemberList)
-	d.hook('S_CHANGE_EVENT_MATCHING_STATE',1,sChangeEvetMatchingState)
+	d.hook('S_PARTY_MEMBER_LIST',7,sPartyMemberList)
+	d.hook('S_CHANGE_EVENT_MATCHING_STATE',2,sChangeEvetMatchingState)
 	d.hook('S_DESPAWN_USER', 3, sDespawnUser)
 	d.hook('S_SPAWN_USER',13, sSpawnUser)
 	d.hook('S_NPC_STATUS',1, sNpcStatus)
