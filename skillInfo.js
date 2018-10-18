@@ -25,7 +25,7 @@ function getSkillsFromTsv(tsv,className){
 function SkillInfo(r,u){
 	this.update = u
 	if(r === 'EU') this.region = 'EU-EN'
-	if(r === 'TH') this.region = 'THA'
+	else if(r === 'TH') this.region = 'THA'
 	else this.region = r
 	skillsfile = path.join(__dirname, '/skills-'+ this.region + '.tsv')
 }
