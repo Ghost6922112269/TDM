@@ -26,6 +26,7 @@ function MonsterInfo(r,u){
 		monsterfile
 
 	if(r === 'EU') region = 'EU-EN'
+	else if(r === 'TH') this.region = 'THA'
 	else region = r
 	monsterfile = path.join(__dirname, '/monsters-'+ region + '.xml')
 
